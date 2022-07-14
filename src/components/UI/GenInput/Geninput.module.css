@@ -1,0 +1,28 @@
+.genInput {
+    outline: none;
+    border: 2px solid #a4a4a4;
+    font-size: 16px;
+    margin: 10px 15px;
+    border-radius: 5px;
+    transition: box-shadow 0.5s;
+    display: flex;
+}
+
+.genInput>input {
+    font-size: 16px;
+    margin: 10px 15px;
+}
+
+.genInput>img {
+    margin: 10px 15px;
+}
+
+/*TODO AS ACTIVE CLASS*/
+.genInput:focus {
+    border: 2px solid #00b618;
+    box-shadow: 0px 1px 5px 1px rgba(0, 0, 0, 0.15);
+}
+
+.genInput:disabled {
+    cursor: not-allowed;
+}
