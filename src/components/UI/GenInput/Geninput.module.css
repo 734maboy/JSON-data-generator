@@ -1,20 +1,30 @@
 .genInput {
+    position: relative;
+    width: 100%;
     outline: none;
     border: 2px solid #a4a4a4;
     font-size: 16px;
-    margin: 10px 15px;
     border-radius: 5px;
     transition: box-shadow 0.5s;
     display: flex;
 }
 
+.genInput_placeholder {
+    font-size: 16px;
+    position: absolute;
+    left: 15px;
+    top: 10px;
+}
+
 .genInput>input {
     font-size: 16px;
     margin: 10px 15px;
+
 }
 
 .genInput>img {
     margin: 10px 15px;
+    cursor: pointer;
 }
 
 /*TODO AS ACTIVE CLASS*/
@@ -26,3 +36,25 @@
 .genInput:disabled {
     cursor: not-allowed;
 }
+
+.genInputCross_visible {
+    opacity: 0.3;
+    transform: scale(1) rotate(360deg);
+    transition: all 0.5s;
+}
+
+.genInputCross_hidden {
+    opacity: 0;
+    transform: scale(0) rotate(0deg);
+    transition: all 0.5s;
+}
+
+.genInput_counter {
+    position: absolute;
+    font-size: 12px;
+    bottom: -8px;
+    background: white;
+    right: 17px;
+    color: #00000066;
+}
+
