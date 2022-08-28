@@ -18,17 +18,17 @@ const GenInput = ({value, setValue, ...props}) => {
 
 
 	const changeValueHandler = useCallback((e) => {
-		let val = e.target.value;
-		let fileName = val.split('.')[0];
-		setValue(fileName + '.json');
+		// let val = e.target.value;
+		// let fileName = val.split('.')[0];
+		setValue(e.target.value);
 	}, [value]);
 
 	// NORM TEMA
-	useEffect(() => {
-		let index = value.indexOf('.');
-		inputRef.current.setSelectionRange(index, index);
-		inputRef.current.focus();
-	}, [value]);
+	// useEffect(() => {
+	// 	let index = value.indexOf('.');
+	// 	inputRef.current.setSelectionRange(index, index);
+	// 	inputRef.current.focus();
+	// }, [value]);
 
 	return (
 		<div

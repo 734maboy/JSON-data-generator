@@ -1,0 +1,24 @@
+.main_table {
+    display: flex;
+}
+
+.main_table__properties {
+    display: flex;
+    flex-direction: column;
+}
+
+.property_row {
+    display: flex;
+}
+
+.add_row_button {
+    width: 26px;
+    height: 26px;
+    border-radius: 5px;
+}
+
+.remove_row_button {
+    width: 26px;
+    height: 26px;
+    border-radius: 5px;
+}
