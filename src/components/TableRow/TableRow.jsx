@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from 'react'
+import GenInput from '../UI/GenInput/GenInput'
+import LayoutItem from '../Layouts/LayoutItem/LayoutItem'
+import GenSelect from '../UI/GenSelect/GenSelect'
+import remove from "./remove.svg";
+import tableRowClasses from './TableRow.module.css';
 
-const TableRow = ({field, name, type, updateRawInMainDataSet, settings}) => {
+const TableRow = ({field, name, type, collectionUpdateHandler, settings}) => {
 
 	const [fieldName, setFieldName] = useState(name || '');
 	const [fieldType, setFieldType] = useState(type || '');
 
-	function changeFieldNameState(e) {
-		setFieldType(e.target.value)
-	}
-
 	useEffect(() => {
-		updateRawInMainDataSet({
+		collectionUpdateHandler({
 			field,
 			name: fieldName,
 			type: fieldType,
@@ -18,19 +19,25 @@ const TableRow = ({field, name, type, updateRawInMainDataSet, settings}) => {
 	}, [fieldName, fieldType])
 
 	return (
-		<div>
-			<button>minus</button>
-			<input type="text" value={fieldName} onChange={(e) => setFieldName(e.target.value)}/>
-			<select
-				name={`${field}_type`}
-				value={fieldType}
-				onChange={changeFieldNameState}
-			>
-				<option value="Type" disabled>Type</option>
-				<option value="Number" >Number</option>
-				<option value="Boolean" >Boolean</option>
-				<option value="String" >String</option>
-			</select>
+		<div className="BaseLayout AlignItemsCenter">
+			<LayoutItem style={{
+				maxHeight: "26px"
+			}}>
+				<img className={tableRowClasses.icon} src={remove} alt={"remove-icon"}/>
+			</LayoutItem>
+			<LayoutItem>
+				<GenInput
+					type="text"
+					setValue={setFieldName}
+					value={fieldName}/>
+			</LayoutItem>
+			<LayoutItem>
+				<GenSelect
+					name={`${field}_type`}
+					value={fieldType}
+					setValue={setFieldType}
+				/>
+			</LayoutItem>
 		</div>
 	)
 }
