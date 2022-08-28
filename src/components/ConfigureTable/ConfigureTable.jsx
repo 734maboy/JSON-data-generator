@@ -1,9 +1,11 @@
-import React, { useState } from 'react'
+import React, { useMemo, useState } from 'react'
 import ctClasses from './ConfigureTable.module.css';
 import TableRow from '../TableRow/TableRow'
 
 
 const ConfigureTable = () => {
+
+	//region DATA
 
 	const [properties, setProperties] = useState([
 		{
@@ -13,6 +15,14 @@ const ConfigureTable = () => {
 			settings: {}
 		}
 	])
+
+	const sortedProperties = useMemo(() => {
+		return properties.sort((a,b) => a.field.localeCompare(b.field));
+	}, [properties]);
+
+	//endregion
+
+	//region METHODS
 
 	function addProperty() {
 		setProperties([...properties, {
@@ -30,14 +40,16 @@ const ConfigureTable = () => {
 		prop.name = elem.name;
 		prop.type = elem.type;
 
-		setProperties([...nonUpdatedProperties, prop].sort((a,b) => a.field.localeCompare(b.field)));
+		setProperties([...nonUpdatedProperties, prop]);
 	}
 
+	//endregion
+
 	return (
-		<div className={ctClasses.main_table}>
+		<div className={[ctClasses.main_table, ctClasses.main_table_spread].join(" ")}>
 			<div className={ctClasses.main_table__properties}>
 				{
-					properties.map((p, index) => {
+					sortedProperties.map((p, index) => {
 						return (
 							<TableRow
 								key={`${index}-of-${p.field}`}
@@ -45,7 +57,7 @@ const ConfigureTable = () => {
 								name={p.name}
 								type={p.type}
 								settings={p.settings}
-								updateRawInMainDataSet={updatePropertiesArray}
+								collectionUpdateHandler={updatePropertiesArray}
 								className={ctClasses.property_row}
 							/>
 						)
