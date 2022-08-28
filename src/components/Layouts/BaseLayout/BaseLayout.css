@@ -1,0 +1,37 @@
+.BaseLayout {
+    display: flex;
+}
+
+.Column {
+    flex-direction: column;
+}
+
+.Row {
+    flex-direction: row;
+}
+
+.JustifyCenter {
+    justify-content: center;
+}
+
+.JustifyBetween {
+    justify-content: space-between;
+}
+
+.JustifyAround {
+    justify-content: space-around;
+}
+
+.JustifyEnd {
+    justify-content: flex-end;
+}
+
+.JustifyStart {
+    justify-content: flex-start;
+}
+
+.AlignItemsCenter {
+    align-items: center;
+}
+
+

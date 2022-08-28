@@ -2,8 +2,13 @@
     display: flex;
 }
 
+.main_table_spread {
+    flex-grow: 3;
+}
+
 .main_table__properties {
     display: flex;
+    width: 100%;
     flex-direction: column;
 }
 
@@ -22,3 +27,5 @@
     height: 26px;
     border-radius: 5px;
 }
+
+
