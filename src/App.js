@@ -4,6 +4,8 @@ import GenInput from './components/UI/GenInput/GenInput'
 import GenButton from './components/UI/GenButton/GenButton'
 import { useState } from 'react'
 import ConfigureTable from './components/ConfigureTable/ConfigureTable'
+import TemplatePresenter from './components/TemplatePresenter/TemplatePresenter'
+import BaseLayout from './components/Layouts/BaseLayout/BaseLayout'
 
 function App() {
 
@@ -27,7 +29,12 @@ function App() {
         Generate
       </GenButton>
 
-      <ConfigureTable/>
+      <BaseLayout
+        className={"BaseLayout"}
+      >
+        <ConfigureTable/>
+        <TemplatePresenter/>
+      </BaseLayout>
       {/*<a href="https://www.flaticon.com/free-icons/close" title="close icons">Close icons created by Freepik - Flaticon</a>*/}
     </div>
   );
