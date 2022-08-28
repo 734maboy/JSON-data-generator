@@ -3,6 +3,7 @@ import './style/main.css';
 import GenInput from './components/UI/GenInput/GenInput'
 import GenButton from './components/UI/GenButton/GenButton'
 import { useState } from 'react'
+import ConfigureTable from './components/ConfigureTable/ConfigureTable'
 
 function App() {
 
@@ -25,6 +26,8 @@ function App() {
       >
         Generate
       </GenButton>
+
+      <ConfigureTable/>
       {/*<a href="https://www.flaticon.com/free-icons/close" title="close icons">Close icons created by Freepik - Flaticon</a>*/}
     </div>
   );
